@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Playfair Display', serif;
+}
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+#main-container {
+  width: 30rem;
+  height: 25rem;
+  text-align: center;
+}
+main #main-container label,
+h2 {
+  font-weight: bold;
+}
+main #main-container a {
+  text-decoration: none;
+  color: black;
+}
+#main-container #company-logo {
+  padding-bottom: 5rem;
+}
+#main-container #company-logo img {
+  width: 4rem;
+}
+#main-container #company-logo h2 {
+  color: rgb(96, 96, 96);
+  padding: 1rem 0;
+}
+#main-container #company-logo p {
+  color: rgb(160, 160, 160);
+  letter-spacing: 0.1rem;
+}
+
+#log-reg-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+#log-reg-box #user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+#log-reg-box #user-info input {
+  width: 35rem;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+}
+#log-reg-box button {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+
+  border: 1px solid black;
+}
