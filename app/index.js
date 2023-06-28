@@ -4,6 +4,7 @@ const Joi = require("joi");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const { authenticate } = require("./middleware");
 require("dotenv").config();
 
 const server = express();
@@ -24,8 +25,9 @@ const userSchema = Joi.object({
 
 const dbPool = mysql.createPool(mysqlConfig).promise();
 
-server.get("/", (_, res) => {
-  res.status(200).end();
+server.get("/", authenticate, (req, res) => {
+  console.log(req.user);
+  res.status(200).send({ message: "Authorized" });
 });
 server.post("/login", async (req, res) => {
   let payload = req.body;
@@ -76,7 +78,6 @@ server.post("/login", async (req, res) => {
 
 server.post("/register", async (req, res) => {
   let payload = req.body;
-
   try {
     payload = await userSchema.validateAsync(payload);
   } catch (error) {
@@ -104,7 +105,7 @@ server.post("/register", async (req, res) => {
     return res.status(201).json({ token });
   } catch (error) {
     console.error(error);
-    res.status(500).send();
+    return res.status(500).send();
   }
 });
 

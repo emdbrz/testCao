@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&display=swap"
       rel="stylesheet"
     />
+    <script src="registration.js" defer></script>
   </head>
   <body>
     <main>
@@ -31,24 +32,28 @@
           <h2>Register</h2>
           <form>
             <div id="user-info">
-              <label for="full-name">Full Name</label>
-              <input type="full-name" name="full-name" id="full-name" />
+              <label for="full_name">Full Name</label>
+              <input type="text" name="full_name" id="full_name" />
               <label for="email">Email</label>
               <input type="email" name="email" id="email" />
 
               <label for="password">Password</label>
               <input type="password" name="password" id="password" />
               <label for="password">Repeat Password</label>
-              <input type="password" name="password" id="password" />
+              <input
+                type="password"
+                name="repeat-password"
+                id="repeat-password"
+              />
+              <div>
+                <button type="submit">Register</button>
+              </div>
             </div>
           </form>
-          <button type="submit">Register</button>
           <div class="register">
-            <p>Or perhaps, just login? <a href="#">login?</a></p>
+            <p>Or perhaps, just login? <a href="./index.html">login?</a></p>
           </div>
-        </div>
-        <img src="" alt="" />
-      </div>
+  
     </main>
   </body>
 </html>

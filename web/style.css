@@ -65,3 +65,34 @@ main #main-container a {
 
   border: 1px solid black;
 }
+
+/* Groups */
+.grid-item {
+  width: 20rem;
+  height: 12rem;
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 0.5rem;
+}
+#grid-container {
+  padding: 3rem;
+  display: grid;
+  row-gap: 3rem;
+  column-gap: 4rem;
+}
+@media (min-width: 400px) {
+  #grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 800px) {
+  #grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 1200px) {
+  #grid-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
