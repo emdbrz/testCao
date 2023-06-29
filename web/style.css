@@ -29,7 +29,7 @@ main #main-container a {
 #main-container #company-logo {
   padding-bottom: 5rem;
 }
-#main-container #company-logo img {
+img {
   width: 4rem;
 }
 #main-container #company-logo h2 {
@@ -58,7 +58,7 @@ main #main-container a {
   height: 2rem;
   margin-bottom: 0.5rem;
 }
-#log-reg-box button {
+button {
   background-color: #fff;
   padding: 0.5rem 1rem;
   font-weight: 600;
@@ -67,6 +67,28 @@ main #main-container a {
 }
 
 /* Groups */
+
+#main-box {
+  text-align: center;
+}
+#add-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#inner-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+#inner-box h2 {
+  padding-bottom: 1rem;
+}
+#inner-box input {
+  width: 20rem;
+  height: 2rem;
+}
 .grid-item {
   width: 20rem;
   height: 12rem;

@@ -109,6 +109,47 @@ server.post("/register", async (req, res) => {
   }
 });
 
+server.get("/groups", authenticate, async (_, res) => {
+  try {
+    const [groups] = await dbPool.execute("SELECT * FROM nodejsexam.groups;");
+    return res.json(groups);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).end();
+  }
+});
+server.post("/groups", async (req, res) => {
+  try {
+    const groups = {
+      name: req.body.name,
+    };
+    const [response] = await dbPool.query(
+      "INSERT INTO nodejsexam.groups SET ?",
+      [groups],
+    );
+    res.json(response);
+  } catch (error) {
+    console.error(error);
+    res.status(500).end();
+  }
+});
+
+server.post("/accounts", async (req, res) => {
+  let payload = req.body;
+  try {
+    const [response] = await dbPool.execute(
+      `INSERT INTO nodejsexam.accounts (group_id, user_id)
+    VALUES (?,?)
+    `,
+      [payload.group_id, payload.user_id],
+    );
+    return res.status(200).send(response);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).end();
+  }
+});
+
 server.listen(process.env.PORT, () =>
   console.log(`Server is listening to ${process.env.PORT} port`),
 );
