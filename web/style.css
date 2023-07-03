@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Playfair Display', serif;
+}
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+#main-container {
+  width: 30rem;
+  height: 25rem;
+  text-align: center;
+}
+main #main-container label,
+h2 {
+  font-weight: bold;
+}
+main #main-container a {
+  text-decoration: none;
+  color: black;
+}
+#main-container #company-logo {
+  padding-bottom: 5rem;
+}
+img {
+  width: 4rem;
+}
+#main-container #company-logo h2 {
+  color: rgb(96, 96, 96);
+  padding: 1rem 0;
+}
+#main-container #company-logo p {
+  color: rgb(160, 160, 160);
+  letter-spacing: 0.1rem;
+}
+#company-logo #text-box {
+  padding-bottom: 3rem;
+  padding-top: 5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+#log-reg-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+#log-reg-box #user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+#log-reg-box #user-info input {
+  width: 35rem;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+}
+button {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+
+  border: 1px solid black;
+}
+
+/* Groups */
+
+#main-box {
+  text-align: center;
+}
+#add-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#inner-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+#inner-box h2 {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+#inner-box input {
+  width: 20rem;
+  height: 2rem;
+}
+.grid-item {
+  width: 15rem;
+  height: 10rem;
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-item h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 0.5rem;
+}
+.grid-item p {
+  font-size: 0.8rem;
+}
+#grid-container {
+  padding: 3rem;
+  display: grid;
+  row-gap: 3rem;
+  column-gap: 4rem;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 300px;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+#grid-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 1000px) {
+  #grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  table {
+    width: 800px;
+  }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 1500px) {
+  #grid-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  table {
+    width: 1200px;
+  }
+}
