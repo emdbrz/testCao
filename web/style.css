@@ -40,6 +40,12 @@ img {
   color: rgb(160, 160, 160);
   letter-spacing: 0.1rem;
 }
+#company-logo #text-box {
+  padding-bottom: 3rem;
+  padding-top: 5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
 
 #log-reg-box {
   display: flex;
@@ -83,6 +89,7 @@ button {
   gap: 0.5rem;
 }
 #inner-box h2 {
+  padding-top: 3rem;
   padding-bottom: 1rem;
 }
 #inner-box input {
@@ -90,10 +97,21 @@ button {
   height: 2rem;
 }
 .grid-item {
-  width: 20rem;
-  height: 12rem;
+  width: 15rem;
+  height: 10rem;
   border: 1px solid rgb(223, 223, 223);
   border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-item h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 0.5rem;
+}
+.grid-item p {
+  font-size: 0.8rem;
 }
 #grid-container {
   padding: 3rem;
@@ -101,20 +119,41 @@ button {
   row-gap: 3rem;
   column-gap: 4rem;
 }
-@media (min-width: 400px) {
-  #grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 300px;
 }
-@media (min-width: 800px) {
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+#grid-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 1000px) {
   #grid-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+  table {
+    width: 800px;
   }
 }
 
 /* Screen larger than 900px? 3 columns */
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   #grid-container {
     grid-template-columns: repeat(5, 1fr);
+  }
+  table {
+    width: 1200px;
   }
 }

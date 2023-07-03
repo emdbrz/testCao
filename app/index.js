@@ -1,8 +1,8 @@
 const express = require("express");
 const mysql = require("mysql2");
+const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const { authenticate } = require("./middleware");
 require("dotenv").config();
@@ -142,6 +142,48 @@ server.post("/accounts", async (req, res) => {
     VALUES (?,?)
     `,
       [payload.group_id, payload.user_id],
+    );
+    return res.status(200).send(response);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).end();
+  }
+});
+
+server.get("/accounts", authenticate, async (req, res) => {
+  try {
+    const [accounts] = await dbPool.execute(
+      "SELECT groups.name, groups.id FROM nodejsexam.accounts JOIN nodejsexam.groups ON groups.id = accounts.group_id  WHERE accounts.user_id=?",
+      [req.user.id],
+    );
+    return res.json(accounts);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).end();
+  }
+});
+
+server.get("/bills/:groups_id", authenticate, async (req, res) => {
+  try {
+    const [bills] = await dbPool.execute(
+      "SELECT * FROM nodejsexam.bills WHERE groups_id=?",
+      [req.params.groups_id],
+    );
+    console.log(bills);
+    return res.json(bills);
+  } catch (error) {
+    return res.status(500).end();
+  }
+});
+
+server.post("/bills", async (req, res) => {
+  let payload = req.body;
+  try {
+    const [response] = await dbPool.execute(
+      `INSERT INTO nodejsexam.bills (groups_id, amount, description)
+    VALUES (?,?,?)
+    `,
+      [payload.groups_id, payload.amount, payload.description],
     );
     return res.status(200).send(response);
   } catch (error) {
